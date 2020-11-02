@@ -2,7 +2,7 @@
 #define TAIR_CONTEST_KV_CONTEST_NVM_UTILITY_H_
 
 #define XXH_INLINE_ALL
-#include "include/xxhash.h"
+#include "xxhash.h"
 
 #include <condition_variable>
 #include <functional>
