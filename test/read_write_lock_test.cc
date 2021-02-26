@@ -4,7 +4,7 @@
 
 #include "read_write_lock.h"
 
-int main(){
+int main() {
   ReadWriteLock lock;
 
   {

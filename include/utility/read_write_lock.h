@@ -12,7 +12,7 @@ class ReadWriteLock {
   pthread_rwlock_t lock_;
 
  public:
-  inline ReadWriteLock() { pthread_rwlock_init(&lock_, NULL); }
+  inline ReadWriteLock() { pthread_rwlock_init(&lock_, nullptr); }
   inline ~ReadWriteLock() { pthread_rwlock_destroy(&lock_); }
   inline void ReaderLock() { pthread_rwlock_rdlock(&lock_); }
   inline void ReaderUnLock() { pthread_rwlock_unlock(&lock_); }
@@ -27,7 +27,7 @@ class ReadLockGuard {
   ReadWriteLock *lock_;
 
  public:
-  inline ReadLockGuard(ReadWriteLock *lock) {
+  inline explicit ReadLockGuard(ReadWriteLock *lock) {
     lock_ = lock;
     lock_->ReaderLock();
   }
@@ -40,7 +40,7 @@ class WriteLockGuard {
   ReadWriteLock *lock_;
 
  public:
-  inline WriteLockGuard(ReadWriteLock *lock) {
+  inline explicit WriteLockGuard(ReadWriteLock *lock) {
     lock_ = lock;
     lock_->WriterLock();
   }

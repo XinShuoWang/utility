@@ -3,7 +3,7 @@
 //
 #include "spin_lock.h"
 
-int main(){
+int main() {
   SpinLock lock;
 
   {

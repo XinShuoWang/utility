@@ -4,12 +4,16 @@
 
 #include "thread_pool.h"
 
-void wait(int seconds){
-  std::this_thread::sleep_for(std::chrono::seconds(seconds));
-}
+#include <iostream>
 
-int main(){
+int main() {
   ThreadPool thread_pool(8);
-  thread_pool.AddJob(std::function<wait>());
+  // function pointer
+  std::function<void()> task_runner = []() {
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    std::cout << "Thread " << std::this_thread::get_id() << " Complete task!" << std::endl;
+  };
+  thread_pool.AddJob(task_runner);
+  // it will wait all run complete!
   return 0;
 }

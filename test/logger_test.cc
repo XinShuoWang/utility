@@ -5,7 +5,7 @@
 #include <cstdio>
 #include "logger.h"
 
-int main(){
+int main() {
   FILE *fp;
   fp = fopen("/tmp/test.txt", "w+");
 

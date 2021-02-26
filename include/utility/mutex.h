@@ -11,8 +11,8 @@ class Mutex {
  private:
   std::mutex m;
  public:
-  inline void Lock(){m.lock();}
-  inline void Unlock() {m.unlock();}
+  inline void Lock() { m.lock(); }
+  inline void Unlock() { m.unlock(); }
 };
 
 #endif //UTILITY_INCLUDE_UTILITY_MUTEX_H_

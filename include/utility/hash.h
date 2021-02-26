@@ -10,7 +10,7 @@
 
 class Hash {
  private:
-  inline static int DecodeFixed32(const char *ptr, uint32_t &result){
+  inline static int DecodeFixed32(const char *ptr, uint32_t &result) {
     const uint8_t *const buffer = reinterpret_cast<const uint8_t *>(ptr);
     // Recent clang and gcc optimize this to a single mov / ldr instruction.
     result = (static_cast<uint32_t>(buffer[0])) |
@@ -21,12 +21,12 @@ class Hash {
   }
 
  public:
-  inline static uint32_t Murmur(const char *data, size_t n, uint32_t seed){
+  inline static uint32_t Murmur(const char *data, size_t n, uint32_t seed) {
     // Similar to murmur hash
     const uint32_t m = 0xc6a4a793;
     const uint32_t r = 24;
     const char *limit = data + n;
-    uint32_t h = seed ^ (n * m);
+    uint32_t h = seed ^(n * m);
     // Pick up four bytes at a time
     while (data + 4 <= limit) {
       uint32_t w;
@@ -55,16 +55,16 @@ class Hash {
     }
     return h;
   }
-  inline static uint32_t XXHash(const char *data, size_t n, uint32_t seed){
+  inline static uint32_t XXHash(const char *data, size_t n, uint32_t seed) {
     return XXH32(data, n, seed);
   }
 
-  inline static uint32_t XXHash(const char *data, size_t n){
+  inline static uint32_t XXHash(const char *data, size_t n) {
     return XXH32(data, n, 9);
   }
 
-  inline static uint32_t FastHash(const char* data, uint32_t n){
-    return (*reinterpret_cast<uint32_t*>(const_cast<char*>(data)));
+  inline static uint32_t FastHash(const char *data, uint32_t n) {
+    return (*reinterpret_cast<uint32_t *>(const_cast<char *>(data)));
   }
 };
 

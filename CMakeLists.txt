@@ -5,7 +5,7 @@ project(utility)
 include_directories(include/utility)
 
 # FOR arena test
-add_executable(arena_test src/arena.cc test/arena_test.cc)
+add_executable(arena_test test/arena_test.cc)
 target_link_libraries(arena_test pthread)
 
 # FOR hash test
@@ -27,3 +27,10 @@ add_executable(spin_lock_test test/spin_lock_test.cc)
 # FOR thread pool
 add_executable(thread_pool_test test/thread_pool_test.cc)
 target_link_libraries(thread_pool_test pthread)
+
+# FOR branch prediction
+add_executable(branch_prediction_test test/branch_prediction_test.cc)
+
+# FOR cpu affinity
+add_executable(cpu_affinity_test test/cpu_affinity_test.cc)
+target_link_libraries(cpu_affinity_test pthread)

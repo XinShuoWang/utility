@@ -4,7 +4,7 @@
 
 #include "mutex.h"
 
-int main(){
+int main() {
   Mutex mutex;
   mutex.Lock();
   // do something ...

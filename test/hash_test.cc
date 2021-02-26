@@ -7,7 +7,7 @@
 #include <string>
 #include <iostream>
 
-int main(){
+int main() {
   std::string a = "abcd";
   std::cout << Hash::Murmur(a.c_str(), a.length(), 9) << std::endl;
   std::cout << Hash::FastHash(a.c_str(), a.length()) << std::endl;
