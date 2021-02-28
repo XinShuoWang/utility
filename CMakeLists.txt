@@ -34,3 +34,6 @@ add_executable(branch_prediction_test test/branch_prediction_test.cc)
 # FOR cpu affinity
 add_executable(cpu_affinity_test test/cpu_affinity_test.cc)
 target_link_libraries(cpu_affinity_test pthread)
+
+# FOR cache prefetch
+add_executable(cache_prefetch_test test/cache_prefetch_test.cc)
