@@ -10,7 +10,7 @@ int main() {
   fp = fopen("/tmp/test.txt", "w+");
 
   Logger logger(kINFO, fp);
-  logger.Add(kDEBUG, "a is %d, b is %lld", 1, 2L);
+  logger.Add(kINFO, "a is %d, b is %lld", 1, 2L);
 
   return 0;
 }

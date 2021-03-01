@@ -7,6 +7,7 @@
 
 #include <ctime>
 #include <string>
+
 enum LogLevel { kNONE, kINFO, kDEBUG };
 
 class Logger {
@@ -15,11 +16,11 @@ class Logger {
   time_t time_start_;
   LogLevel log_level_;
 
-  inline void Add(LogLevel log_level, std::string log) {
+  inline void Add(LogLevel log_level, const std::string &log) {
     if (log_file_ != nullptr && log_level <= log_level_) {
-      time_t time_now = time(NULL);
-      fprintf(log_file_, "Time: %ld, Message: %s\n", time_now - time_start_,
-              log.c_str());
+      time_t time_now = time(nullptr);
+      fprintf(log_file_, "Time: %ld, Message: %s\n",
+              time_now - time_start_, log.c_str());
       fflush(log_file_);
     }
   }
@@ -28,7 +29,7 @@ class Logger {
   inline explicit Logger(LogLevel log_level, FILE *file) {
     log_level_ = log_level;
     log_file_ = file;
-    time_start_ = time(NULL);
+    time_start_ = time(nullptr);
   }
 
   inline ~Logger() {
