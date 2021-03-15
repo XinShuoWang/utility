@@ -37,3 +37,6 @@ target_link_libraries(cpu_affinity_test pthread)
 
 # FOR cache prefetch
 add_executable(cache_prefetch_test test/cache_prefetch_test.cc)
+
+# FOR random generator
+add_executable(random_generator_test test/random_test.cc)
